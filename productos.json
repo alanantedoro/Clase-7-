@@ -1,0 +1,22 @@
+[
+  {
+    "name": "lapicera",
+    "price": "54",
+    "id": 1
+  },
+  {
+    "name": "lapiz",
+    "price": 30,
+    "id": 2
+  },
+  {
+    "name": "goma",
+    "price": 45,
+    "id": 3
+  },
+  {
+    "name": "birome",
+    "price": "70",
+    "id": 4
+  }
+]
