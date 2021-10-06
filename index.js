@@ -1,6 +1,5 @@
 const express = require('express');
 const { Router } = express
-// const multer = require('multer');
 
 const productosRouter = require('./routers/productos');
 

@@ -1,9 +1,15 @@
+const { response } = require('express');
 const fs = require('fs');
 
+
+
 class Contenedor {
+
+
 	constructor(file) {
 		this.file = file;
 }
+
 
 	async save(producto){
 		try {
@@ -48,7 +54,7 @@ class Contenedor {
 				}
 	
 	} catch(error) {
-		console.log('Error: ', error);
+			console.log('Error: ', error);
 		};
 	
 	};
@@ -71,12 +77,14 @@ class Contenedor {
 
 			const listaDeProductos = JSON.parse(contenido);
 
-			let arrayCheck = listaDeProductos.filter(items => items.id == deleteId);
-			let newArray = listaDeProductos.filter(items => items.id !== deleteId);
+			let arrayCheck = listaDeProductos.filter(items => items.id == parseInt(deleteId));
+			let newArray = listaDeProductos.filter(items => items.id !== parseInt(deleteId));
 
-			if(arrayCheck === '' || arrayCheck == undefined){
+			let respuesta;
 
-				return console.log('There are no products related to that ID.');
+			if(arrayCheck.length === 0){
+
+				respuesta = 'producto no encontrado';
 
 			} else {
 				
@@ -84,8 +92,10 @@ class Contenedor {
 	
 				await fs.promises.writeFile(`./${this.file}`, productosString);
 
-				console.log('Item deleted successfully');
+				respuesta = 'Item deleted successfully';
 			}
+
+			return respuesta
 
 		} catch(error) {
 			console.log('Error: ', error);

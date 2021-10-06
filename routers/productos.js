@@ -16,13 +16,20 @@ productosRouter.get('/', async (req, res) => {
 productosRouter.put('/:id', async (req, res) => {
   const idRequested = req.params.id;
   const product = req.body;
+  const findProduct = await contenedor.getByID(idRequested);
   
-  const productUpdated = contenedor.update(idRequested, product);
-  
-  res.send({
-    message: 'operation successfull',
-    data: req.body
-  });
+  if (!findProduct) {
+    res.send({
+       message: `No existe el producto con el id ${idRequested}`,
+    });
+  }
+    
+  else {
+    const productUpdated = contenedor.update(idRequested, product);
+      res.send({
+      message: `Producto ${idRequested} actualizado`,
+    });
+  };
 });
 
 
@@ -44,26 +51,39 @@ productosRouter.get('/:id', async (req, res) => {
 
   const productReq = await contenedor.getByID(idRequested);
 
-  res.send({
+  if (!productReq) {
+    res.send({
+       message: `No existe el producto con el id ${idRequested}`,
+    });
+  }
+    
+   else {
+    res.send({
     message: 'Your product is',
     data: {productReq}
   });
-});
+
+}});
+
 
 
 productosRouter.delete('/:id', async (req, res) => {
   const idRequested = req.params.id;
+  const findProduct = await contenedor.getByID(idRequested);
 
-  const productReq = await contenedor.deleteById(idRequested);
+  if (!findProduct) {
+        res.send({
+            message: `No existe un producto con el id ${idRequested}`,
+        });
+    }
+    
+    else {
+        const productReq = await contenedor.deleteById(idRequested);
+        res.send({
+            message: `ID ${idRequested} eliminado`,
+        });
+    }
 
-  res.send({
-    message: 'Your product was deleted.',
-  });
 });
 
 module.exports = productosRouter;
-
-/*deletebyID no esta funcionando, 
-ver el tema del form
-cambiar formato de productos
-ver casos por errores y agregar ifs */

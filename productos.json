@@ -2,21 +2,25 @@
   {
     "name": "lapicera",
     "price": "54",
+    "thumbnail": "https://argentinapilotshop.com.ar/1762-thickbox_default/lapicera-boeing.jpg",
     "id": 1
-  },
-  {
-    "name": "lapiz",
-    "price": 30,
-    "id": 2
   },
   {
     "name": "goma",
     "price": 45,
-    "id": 3
+    "thumbnail": "https://improstock.com.ar/wp-content/uploads/2021/02/goma-1.jpg",
+    "id": 2
   },
   {
     "name": "birome",
     "price": "70",
+    "thumbnail": "https://aldina.com.ar/wp-content/uploads/2020/08/lapicera-boligrafo-birome-bic-opaco-trazo-grueso-1mm-azul-D_NQ_NP_772226-MLA31035218736_062019-F.jpg",
+    "id": 3
+  },
+  {
+    "name": "regla",
+    "price": "40",
+    "thumbnail": "https://www.alloffice.com.py/9477-large_default/regla-metalica-10cm.jpg",
     "id": 4
   }
 ]
